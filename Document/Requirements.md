@@ -642,7 +642,30 @@ User A thuộc:
 │                                     │
 └─────────────────────────────────────┘
 ```
-
+| Mã YC | Chức năng | Mã Biểu mẫu | Quy định NV | Ghi chú |
+|-------|-----------|-------------|-------------|---------|
+| **F1.1** | Đăng ký tài khoản | BM2 | - | Validation username unique, email format |
+| **F1.2** | Đăng nhập / Đăng xuất | BM1 | - | Lưu session, chuyển đến màn hình chính |
+| **F1.3** | Xem và cập nhật thông tin cá nhân | BM1 | - | Email, họ tên, SĐT có thể sửa |
+| **F1.4** | Đổi mật khẩu | BM1 | - | Validate mật khẩu cũ đúng |
+| **F2.1** | Tạo team mới | BM2, BM3 | BR8 | User tạo tự động là Leader |
+| **F2.2** | Cập nhật thông tin team | BM2 | - | Chỉ Leader được phép |
+| **F2.3** | Thêm thành viên vào team | BM3 | - | Leader thêm User với vai trò Leader/Member |
+| **F2.4** | Xóa thành viên khỏi team | BM3 | BR5, BR8 | Không xóa Leader cuối cùng |
+| **F2.5** | Xóa team | BM2 | BR8 | Cascade delete phân quyền |
+| **F3.1** | Tạo repository | BM4 | - | Team chọn tự động có WRITE |
+| **F3.2** | Gán repository cho team khác | BM4, BM6 | BR1 | Gán quyền READ/WRITE cho team |
+| **F3.3** | Thiết lập quyền truy cập repository | BM6 | BR1, BR4 | Thay đổi READ ↔ WRITE |
+| **F3.4** | Thay đổi trạng thái repository | BM4 | BR6 | Public ↔ Private |
+| **F3.5** | Xóa repository | BM4 | - | Confirm nếu có file |
+| **F3.6** | Xem danh sách repository | BM4, BM8 | BR6 | Public + Private có quyền |
+| **F4.1** | Upload file vào repository | BM5 | BR2, BR9 | Chỉ user có WRITE, max 50MB |
+| **F4.2** | Xem danh sách file | BM5 | BR2 | User có quyền READ/WRITE |
+| **F4.3** | Xem nội dung file | BM5 | BR2 | Chỉ text files, binary → download |
+| **F4.4** | Download file | BM5 | BR2 | User có READ/WRITE |
+| **F4.5** | Xóa file | BM5 | BR2 | Chỉ user có WRITE |
+| **F6.1** | Gán quyền repository cho team | BM6 | BR1, BR4 | Không trùng quyền (BR4) |
+| **F6.2** | Thu hồi quyền đã cấp | BM6 | BR3 | Tất cả members mất quyền ngay |
 ---
 ## IV. TÍCH HỢP AI 
 
